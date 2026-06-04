@@ -16,7 +16,7 @@ export function getPostTags(post: Post): string[] {
   if (!tags) return []
   if (Array.isArray(tags)) return tags.filter((t): t is string => typeof t === 'string')
   if (typeof tags === 'string') {
-    return tags.split(',').map((t) => t.trim()).filter(Boolean)
+    return (tags as string).split(',').map((t: string) => t.trim()).filter(Boolean)
   }
   return []
 }
